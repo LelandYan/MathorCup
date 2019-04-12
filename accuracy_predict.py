@@ -43,11 +43,11 @@ class cal_accuracy:
         # 获得Mn收得率
         self.data = self.data[(self.data["Mn收得率"] > 0) | (self.data["Mn收得率"] < 1)]
         self.Mn_label = self.data.iloc[:, -1]
-        self.data_Mn = self.data.loc[:, ["转炉终点温度", "转炉终点Mn", "钢水净重", "连铸正样Mn", "钒铁(FeV50-B)", "硅锰面（硅锰渣）",
+        self.data_Mn = self.data.loc[:, ["转炉终点温度", "钢水净重", "连铸正样Mn", "钒铁(FeV50-B)", "硅锰面（硅锰渣）",
                                          "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)"]]
         return self.data_Mn, self.Mn_label
 
-    def train(self, C=False, C_Mn=True):
+    def train(self, C=False, C_Mn=False):
         data = None
         label = None
         if C:
