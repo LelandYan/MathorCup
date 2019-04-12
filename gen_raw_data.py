@@ -25,6 +25,7 @@ class gen_data:
     def cal_C(self):
         # C的历史回收率
         # 810行之后转炉终点C为空
+        self.left_data = self.data[810:]
         self.data = self.data[:810]
         # self.data = self.data[:251]
         self.data_com = self.data.iloc[:, 5:]
@@ -36,6 +37,7 @@ class gen_data:
         sum_data = div_num.sum(axis=1)
         # self.data["C元素的质量总和"] = sum_data
         self.data["C收得率"] = (self.data['连铸正样C'] - self.data["转炉终点C"]) * self.data['钢水净重'] / sum_data
+        self.left_data["C收得率"] = 0
 
     def cal_Mn(self):
         # # Mn的历史回收率
@@ -50,6 +52,7 @@ class gen_data:
         sum_data = div_num.sum(axis=1)
         # self.data["Mn元素的质量总和"] = sum_data
         self.data["Mn收得率"] = (self.data['连铸正样Mn'] - self.data["转炉终点Mn"]) * self.data['钢水净重'] / sum_data
+        self.left_data["Mn收得率"] = 0
 
     def run(self):
         self.read_data()
@@ -59,13 +62,15 @@ class gen_data:
         #self.data.fillna(np.inf, inplace=True)
         self.data = self.data[~self.data["Mn收得率"].isin(['inf'])]
         self.data = self.data[~self.data["C收得率"].isin(['inf'])]
-
+        print(self.data.shape)
+        print(self.left_data.shape)
+        self.data = pd.concat([self.data,self.left_data],axis=0)
         # 将收得率大于1的进行剔除
         self.data = self.data[self.data["C收得率"] < 1]
         # 将转炉终点温度为0的剔除
         self.data = self.data[self.data["转炉终点温度"] != 0]
         # 储存结果文件
-        self.data.to_excel("result.xlsx", index=False)
+        self.data.to_excel("process_data.xlsx", index=False)
 
 if __name__ == '__main__':
     item = gen_data()

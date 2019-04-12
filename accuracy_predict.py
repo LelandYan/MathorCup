@@ -34,10 +34,13 @@ class cal_accuracy:
     def C_Mn_model_cal_Mn(self):
         data = self.data[(self.data["Mn收得率"] > 0) | (self.data["Mn收得率"] < 1)]
         Mn_label = data.iloc[:, -1]
-        self.label = ["转炉终点温度", "转炉终点C", '钢水净重', '连铸正样C', '连铸正样Mn',
-                      "钒铁(FeV50-A)", "钒铁(FeV50-B)", "硅铝合金FeAl30Si25", "硅铝锰合金球",
+        self.label = ["转炉终点温度", "转炉终点C", '钢水净重', "钒铁(FeV50-A)", "钒铁(FeV50-B)", "硅铝合金FeAl30Si25", "硅铝锰合金球",
                       "硅锰面（硅锰渣）", "硅铁(合格块)", "硅铁FeSi75-B", "石油焦增碳剂",
                       "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)", "碳化硅(55%)", "硅钙碳脱氧剂", ]
+        # self.label = ["转炉终点温度", "转炉终点C", '钢水净重', '连铸正样C', '连铸正样Mn',
+        #               "钒铁(FeV50-A)", "钒铁(FeV50-B)", "硅铝合金FeAl30Si25", "硅铝锰合金球",
+        #               "硅锰面（硅锰渣）", "硅铁(合格块)", "硅铁FeSi75-B", "石油焦增碳剂",
+        #               "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)", "碳化硅(55%)", "硅钙碳脱氧剂", ]
         # 剔除, '转炉终点Mn'
         data = data.loc[:, self.label]
         return data, Mn_label
@@ -66,7 +69,7 @@ class cal_accuracy:
         data_Mn = data.loc[:, self.label]
         return data_Mn, Mn_label
 
-    def train(self, C=False, Mn=False, C_Mn_cal_Mn_C=False, C_Mn_cal_Mn=True):
+    def train(self, C=False, Mn=False, C_Mn_cal_Mn_C=True, C_Mn_cal_Mn=False):
         data = None
         label = None
         if C:
@@ -99,7 +102,7 @@ class cal_accuracy:
         self.read_data()
         self.train()
 
-    def fil_Mn(self):
+    def fill_Mn(self):
         data = self.data.iloc[192:, :]
         data_input = data.loc[:, self.label]
         data_input = self.std.transform(data_input)
@@ -107,9 +110,19 @@ class cal_accuracy:
         for i in np.arange(len(res)):
             self.data.loc[192 + i:, "Mn收得率"] = res[i]
         self.data.to_excel("fill_Mn_result.xlsx", index=False)
-
+    def fill_C_Mn(self):
+        data = self.data.iloc[193, :]
+        data_input = data.loc[:, self.label]
+        data_input = self.std.transform(data_input)
+        res = self.model.predict(data_input)
+        print(res)
+        # for i in np.arange(len(res)):
+        #     self.data.loc[192 + i:, "Mn收得率"] = res[i]
+        #     self.data.loc[192 + i:, "Mn收得率"] = res[i]
+        # self.data.to_excel("fill_Mn_C_result.xlsx", index=False)
 
 if __name__ == '__main__':
     item = cal_accuracy()
     item.run()
-    # item.fil_Mn()
+    # item.fill_Mn()
+    item.fill_C_Mn()
