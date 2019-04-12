@@ -11,18 +11,20 @@ from sklearn.svm import SVR
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
+from sklearn.preprocessing import Imputer
 from sklearn.externals import joblib
 
 
 class cal_accuracy:
-    def __init__(self, name="result.xlsx"):
+    def __init__(self, name="process_data.xlsx"):
         self.file_name = name
 
     def read_data(self):
-        self.data = pd.read_excel("result.xlsx")
+        self.data = pd.read_excel(self.file_name)
+        # print(self.data.info())
 
     def C_model_cal_C(self):
-        data = self.data[(self.data["C收得率"] > 0) | (self.data["C收得率"] < 1)]
+        data = self.data[(self.data["C收得率"] >= 0) | (self.data["C收得率"] < 1)]
         # 获得C收得率
         C_label = data.iloc[:, -2]
         self.label = ["转炉终点温度", "转炉终点C", "钢水净重", "连铸正样C", "钒铁(FeV50-A)", "钒铁(FeV50-B)", "硅铝合金FeAl30Si25",
@@ -32,7 +34,7 @@ class cal_accuracy:
         return data_C, C_label
 
     def C_Mn_model_cal_Mn(self):
-        data = self.data[(self.data["Mn收得率"] > 0) | (self.data["Mn收得率"] < 1)]
+        data = self.data[(self.data["Mn收得率"] >= 0) | (self.data["Mn收得率"] < 1)]
         Mn_label = data.iloc[:, -1]
         self.label = ["转炉终点温度", "转炉终点C", '钢水净重', "钒铁(FeV50-A)", "钒铁(FeV50-B)", "硅铝合金FeAl30Si25", "硅铝锰合金球",
                       "硅锰面（硅锰渣）", "硅铁(合格块)", "硅铁FeSi75-B", "石油焦增碳剂",
@@ -46,7 +48,7 @@ class cal_accuracy:
         return data, Mn_label
 
     def C_Mn_model_cal_C_Mn(self):
-        data = self.data[(self.data["Mn收得率"] > 0) | (self.data["Mn收得率"] < 1)]
+        data = self.data[(self.data["Mn收得率"] >= 0) | (self.data["Mn收得率"] < 1)]
         C_Mn_label = data.iloc[:, -3:-1]
         # self.label = ["转炉终点温度", "转炉终点C", '钢水净重', '连铸正样C', '连铸正样Mn',
         #                               "钒铁(FeV50-A)", "钒铁(FeV50-B)", "硅铝合金FeAl30Si25", "硅铝锰合金球",
@@ -61,7 +63,7 @@ class cal_accuracy:
 
     def Mn_model_cal_Mn(self):
         # 获得Mn收得率
-        data = self.data[(self.data["Mn收得率"] > 0) | (self.data["Mn收得率"] < 1)]
+        data = self.data[(self.data["Mn收得率"] >= 0) | (self.data["Mn收得率"] < 1)]
         Mn_label = data.iloc[:, -1]
         self.label = ["转炉终点温度", "钢水净重", "钒铁(FeV50-B)", "硅锰面（硅锰渣）",
                       "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)"]
@@ -111,15 +113,14 @@ class cal_accuracy:
             self.data.loc[192 + i:, "Mn收得率"] = res[i]
         self.data.to_excel("fill_Mn_result.xlsx", index=False)
     def fill_C_Mn(self):
-        data = self.data.iloc[193, :]
+        data = self.data.iloc[193:, :]
         data_input = data.loc[:, self.label]
         data_input = self.std.transform(data_input)
         res = self.model.predict(data_input)
-        print(res)
-        # for i in np.arange(len(res)):
-        #     self.data.loc[192 + i:, "Mn收得率"] = res[i]
-        #     self.data.loc[192 + i:, "Mn收得率"] = res[i]
-        # self.data.to_excel("fill_Mn_C_result.xlsx", index=False)
+        for i in np.arange(len(res)):
+            self.data.loc[192 + i:, "Mn收得率"] = res[i,0]
+            self.data.loc[192 + i:, "Mn收得率"] = res[i,1]
+        self.data.to_excel("fill_Mn_C_result.xlsx", index=False)
 
 if __name__ == '__main__':
     item = cal_accuracy()

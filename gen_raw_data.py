@@ -16,10 +16,11 @@ class gen_data:
         self.data = pd.read_excel("D题附件1.xlsx")
         self.label = pd.read_excel("D题附件2.xlsx")
         self.label = self.label.fillna(0)
-        self.data = self.data[["转炉终点C", '转炉终点Mn', '钢水净重', '连铸正样C', '连铸正样Mn',
-                               "钒铁(FeV50-A)", "钒铁(FeV50-B)", "硅铝合金FeAl30Si25", "硅铝锰合金球",
-                               "硅锰面（硅锰渣）", "硅铁(合格块)", "硅铁FeSi75-B", "石油焦增碳剂",
-                               "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)", "碳化硅(55%)", "硅钙碳脱氧剂", "转炉终点温度"]]
+        self.item = ["转炉终点C", '转炉终点Mn', '钢水净重', '连铸正样C', '连铸正样Mn',
+                     "钒铁(FeV50-A)", "钒铁(FeV50-B)", "硅铝合金FeAl30Si25", "硅铝锰合金球",
+                     "硅锰面（硅锰渣）", "硅铁(合格块)", "硅铁FeSi75-B", "石油焦增碳剂",
+                     "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)", "碳化硅(55%)", "硅钙碳脱氧剂", "转炉终点温度"]
+        self.data = self.data[self.item]
         # 251行之后转炉终点Mn为空
 
     def cal_C(self):
@@ -59,18 +60,23 @@ class gen_data:
         self.cal_C()
         self.cal_Mn()
         # 对结果进行处理 去除inf和null值
-        #self.data.fillna(np.inf, inplace=True)
+        # self.data.fillna(np.inf, inplace=True)
         self.data = self.data[~self.data["Mn收得率"].isin(['inf'])]
         self.data = self.data[~self.data["C收得率"].isin(['inf'])]
-        print(self.data.shape)
-        print(self.left_data.shape)
-        self.data = pd.concat([self.data,self.left_data],axis=0)
+
+        self.data = pd.concat([self.data, self.left_data], axis=0)
         # 将收得率大于1的进行剔除
         self.data = self.data[self.data["C收得率"] < 1]
         # 将转炉终点温度为0的剔除
         self.data = self.data[self.data["转炉终点温度"] != 0]
+        self.data = self.data[~self.data["转炉终点温度"].isnull()]
+        # self.data.drop(self.data["转炉终点温度"])
+        for i in self.item:
+            self.data = self.data[~(self.data[i]==np.inf)]
+            self.data = self.data[~(self.data[i] == np.nan)]
         # 储存结果文件
         self.data.to_excel("process_data.xlsx", index=False)
+
 
 if __name__ == '__main__':
     item = gen_data()
