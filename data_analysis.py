@@ -11,7 +11,9 @@ from sklearn.feature_selection import RFE, f_regression
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
 from sklearn import metrics as mr
-
+from pandas.plotting import scatter_matrix
+import matplotlib as mpl
+import matplotlib.pyplot as plt
 
 class cal_corr:
     def __init__(self, name="result.xlsx"):
@@ -23,6 +25,17 @@ class cal_corr:
         # 读取数据
         self.data = pd.read_excel("result.xlsx")
 
+    def plot_corr(self,C=True):
+        mpl.rcParams['font.sans-serif'] = [u'SimHei']
+        mpl.rcParams['axes.unicode_minus'] = False
+        self.read_data()
+        if C:
+            col = ["转炉终点温度", "转炉终点C", "钢水净重", "连铸正样C", "钒铁(FeV50-A)", "钒铁(FeV50-B)", "硅铝合金FeAl30Si25",
+                         "硅锰面（硅锰渣）", "硅铁(合格块)", "硅铁FeSi75-B", "石油焦增碳剂",
+                         "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)", "碳化硅(55%)", "硅钙碳脱氧剂"]
+            scatter_matrix(self.data.loc[:,col],figsize=(25,25))
+        plt.show()
+
     def pearsonr_cal(self):
         for i in np.arange(self.data.shape[1]):
             self.pearsonr_rate.append(pearsonr(self.C_label, self.data.iloc[:, i])[1])
@@ -32,6 +45,7 @@ class cal_corr:
         self.f, pval = f_regression(self.C_label, self.data, center=True)
 
     def mutual_info(self, C_label=False):
+        self.read_data()
         if C_label:
             self.label = ["转炉终点温度", "转炉终点C", "钢水净重", "连铸正样C", "钒铁(FeV50-A)", "钒铁(FeV50-B)", "硅铝合金FeAl30Si25",
                          "硅锰面（硅锰渣）", "硅铁(合格块)", "硅铁FeSi75-B", "石油焦增碳剂",
@@ -71,4 +85,5 @@ class cal_corr:
 
 if __name__ == '__main__':
     item = cal_corr()
+    item.plot_corr()
     print(item.run())
