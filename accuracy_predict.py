@@ -13,7 +13,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import Imputer
 from sklearn.externals import joblib
-
+from sklearn.neural_network import MLPRegressor
 
 class cal_accuracy:
     def __init__(self, name="process_data.xlsx"):
@@ -35,7 +35,7 @@ class cal_accuracy:
 
     def C_Mn_model_cal_Mn(self):
         data = self.data[(self.data["Mn收得率"] >= 0) | (self.data["Mn收得率"] < 1)]
-        Mn_label = data.iloc[:, -1]
+        Mn_label = data.iloc[:192, -1]
         self.label = ["转炉终点温度", "转炉终点C", '钢水净重', "钒铁(FeV50-A)", "钒铁(FeV50-B)", "硅铝合金FeAl30Si25", "硅铝锰合金球",
                       "硅锰面（硅锰渣）", "硅铁(合格块)", "硅铁FeSi75-B", "石油焦增碳剂",
                       "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)", "碳化硅(55%)", "硅钙碳脱氧剂", ]
@@ -44,12 +44,12 @@ class cal_accuracy:
         #               "硅锰面（硅锰渣）", "硅铁(合格块)", "硅铁FeSi75-B", "石油焦增碳剂",
         #               "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)", "碳化硅(55%)", "硅钙碳脱氧剂", ]
         # 剔除, '转炉终点Mn'
-        data = data.loc[:, self.label]
+        data = data.loc[:192, self.label]
         return data, Mn_label
 
     def C_Mn_model_cal_C_Mn(self):
         data = self.data[(self.data["Mn收得率"] >= 0) | (self.data["Mn收得率"] < 1)]
-        C_Mn_label = data.iloc[:, -3:-1]
+        C_Mn_label = data.iloc[:192, -2:]
         # self.label = ["转炉终点温度", "转炉终点C", '钢水净重', '连铸正样C', '连铸正样Mn',
         #                               "钒铁(FeV50-A)", "钒铁(FeV50-B)", "硅铝合金FeAl30Si25", "硅铝锰合金球",
         #                               "硅锰面（硅锰渣）", "硅铁(合格块)", "硅铁FeSi75-B", "石油焦增碳剂",
@@ -58,17 +58,18 @@ class cal_accuracy:
                       "硅锰面（硅锰渣）", "硅铁(合格块)", "硅铁FeSi75-B", "石油焦增碳剂",
                       "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)", "碳化硅(55%)", "硅钙碳脱氧剂", ]
         # 剔除, '转炉终点Mn'
-        data = data.loc[:, self.label]
+        data = data.loc[:192, self.label]
+        # print(data.info())
         return data, C_Mn_label
 
     def Mn_model_cal_Mn(self):
         # 获得Mn收得率
         data = self.data[(self.data["Mn收得率"] >= 0) | (self.data["Mn收得率"] < 1)]
-        Mn_label = data.iloc[:, -1]
+        Mn_label = data.iloc[:192, -1]
         self.label = ["转炉终点温度", "钢水净重", "钒铁(FeV50-B)", "硅锰面（硅锰渣）",
                       "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)"]
         # 剔除, "连铸正样Mn"
-        data_Mn = data.loc[:, self.label]
+        data_Mn = data.loc[:192, self.label]
         return data_Mn, Mn_label
 
     def train(self, C=False, Mn=False, C_Mn_cal_Mn_C=True, C_Mn_cal_Mn=False):
@@ -88,11 +89,11 @@ class cal_accuracy:
         X_train = self.std.transform(X_train)
         X_test = self.std.transform(X_test)
 
-        # model = RandomForestRegressor()  # 0.00178279872547 0.00130315829688
+        # self.model = RandomForestRegressor()  # 0.00178279872547 0.00130315829688
         self.model = LinearRegression()  # 8.36667068081e-05  0.00016716587287
-        # model = Ridge() # 7.8575505755e-05              0.000232658506956
-        # model = Lasso() # 0.0046516170403                  0.00238670854501
-        # model = SVR()  # 0.00328161901572                 0.00307726323407
+        #self.model = Ridge() # 7.8575505755e-05              0.000232658506956
+        #self.model = Lasso() # 0.0046516170403                  0.00238670854501
+        #self.model = SVR()  # 0.00328161901572                 0.00307726323407
         self.model.fit(X_train, y_train)
         y_pred = self.model.predict(X_test)
 
@@ -105,21 +106,25 @@ class cal_accuracy:
         self.train()
 
     def fill_Mn(self):
-        data = self.data.iloc[192:, :]
+        data = self.data.iloc[192:611, :]
         data_input = data.loc[:, self.label]
+        print(data_input.shape)
         data_input = self.std.transform(data_input)
         res = self.model.predict(data_input).ravel()
+        print(res.shape)
         for i in np.arange(len(res)):
             self.data.loc[192 + i:, "Mn收得率"] = res[i]
-        self.data.to_excel("fill_Mn_result.xlsx", index=False)
+        self.data.to_excel("fill_Mn_C_result.xlsx", index=False)
+
     def fill_C_Mn(self):
-        data = self.data.iloc[193:, :]
+        data = self.data.iloc[610:, :]
         data_input = data.loc[:, self.label]
         data_input = self.std.transform(data_input)
-        res = self.model.predict(data_input)
+        res = np.array(self.model.predict(data_input))
+        print(res.shape)
         for i in np.arange(len(res)):
-            self.data.loc[192 + i:, "Mn收得率"] = res[i,0]
-            self.data.loc[192 + i:, "Mn收得率"] = res[i,1]
+            self.data.loc[610+i:, "C收得率"] = res[i][0]
+            self.data.loc[610+i:, "Mn收得率"] = res[i][1]
         self.data.to_excel("fill_Mn_C_result.xlsx", index=False)
 
 if __name__ == '__main__':

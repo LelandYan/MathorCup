@@ -70,9 +70,11 @@ class gen_data:
         # 将转炉终点温度为0的剔除
         self.data = self.data[self.data["转炉终点温度"] != 0]
         self.data = self.data[~self.data["转炉终点温度"].isnull()]
+        self.data = self.data[~self.data["钢水净重"].isnull()]
         # self.data.drop(self.data["转炉终点温度"])
         for i in self.item:
             self.data = self.data[~(self.data[i]==np.inf)]
+            # self.data = self.data[~self.data[i].isnull()]
             self.data = self.data[~(self.data[i] == np.nan)]
         # 储存结果文件
         self.data.to_excel("process_data.xlsx", index=False)
