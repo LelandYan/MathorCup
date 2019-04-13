@@ -30,6 +30,7 @@ class gen_data:
         self.data = self.data[:810]
         # self.data = self.data[:251]
         self.data_com = self.data.iloc[:, 5:]
+        #
         data_c = self.data_com.iloc[:, [0, 1, 3, 4, 5, 6, 7, 8, 9, 10, 11]]
         C = self.label.iloc[:, 1]
         components = (C != 0)
