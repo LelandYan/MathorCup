@@ -17,7 +17,7 @@ from sklearn.externals import joblib
 from sklearn.neural_network import MLPRegressor
 
 class cal_accuracy:
-    def __init__(self, name="process_data.xlsx"):
+    def __init__(self, name="process_C_Mn_data.xlsx"):
         self.file_name = name
 
     def read_data(self,filename=None):
@@ -193,5 +193,5 @@ class cal_accuracy:
         self.data.to_excel("result.xlsx", index=False)
 
 if __name__ == '__main__':
-    item = cal_accuracy()
+    item = cal_accuracy("process_C_Mn_data.xlsx")
     item.run()

@@ -79,7 +79,7 @@ class gen_data:
             # self.data = self.data[~self.data[i].isnull()]
             self.data = self.data[~(self.data[i] == np.nan)]
         # 储存结果文件
-        self.data.to_excel("process_data.xlsx", index=False)
+        self.data.to_excel("process_C_Mn_data.xlsx", index=False)
 
 
 if __name__ == '__main__':

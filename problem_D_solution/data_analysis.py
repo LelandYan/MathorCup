@@ -39,7 +39,7 @@ class cal_corr:
             scatter_matrix(self.data.loc[:, col], figsize=(25, 25))
         plt.show()
 
-    def pearsonr_cal(self,C_label=True):
+    def pearsonr_cal(self,C_label=False):
         if C_label:
             self.label = ["转炉终点温度", "转炉终点C", "钢水净重", "连铸正样C", "钒铁(FeV50-A)", "钒铁(FeV50-B)", "硅铝合金FeAl30Si25",
                           "硅锰面（硅锰渣）", "硅铁(合格块)", "硅铁FeSi75-B", "石油焦增碳剂",
@@ -60,7 +60,7 @@ class cal_corr:
         self.pearsonr_rate = zip(self.label, self.pearsonr_rate)
         #self.pearsonr_rate = np.array(self.pearsonr_rate)
 
-    def mutual_info(self, C_label=False):
+    def mutual_info(self, C_label=True):
         if C_label:
             self.label = ["转炉终点温度", "转炉终点C", "钢水净重", "连铸正样C", "钒铁(FeV50-A)", "钒铁(FeV50-B)", "硅铝合金FeAl30Si25",
                           "硅锰面（硅锰渣）", "硅铁(合格块)", "硅铁FeSi75-B", "石油焦增碳剂",
@@ -81,7 +81,7 @@ class cal_corr:
         self.mutual_info_rate = zip(self.label, self.mutual_info_rate)
         # self.mutual_info_rate = np.array(self.mutual_info_rate)
 
-    def run(self, pearsonr_cal=True,mutual_info=True):
+    def run(self, pearsonr_cal=False,mutual_info=True):
         self.read_data()
         if pearsonr_cal:
             self.pearsonr_cal()
