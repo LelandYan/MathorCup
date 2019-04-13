@@ -15,6 +15,8 @@ from pandas.plotting import scatter_matrix
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 
+import warnings
+warnings.filterwarnings("ignore")
 class cal_corr:
     def __init__(self, name="result.xlsx"):
         self.name = name
@@ -23,47 +25,55 @@ class cal_corr:
 
     def read_data(self):
         # 读取数据
-        self.data = pd.read_excel("result.xlsx")
+        self.data = pd.read_excel(self.name)
+        self.data = self.data.iloc[:192, :]
 
-    def plot_corr(self,C=True):
+    def plot_corr(self, C=True):
         mpl.rcParams['font.sans-serif'] = [u'SimHei']
         mpl.rcParams['axes.unicode_minus'] = False
         self.read_data()
         if C:
             col = ["转炉终点温度", "转炉终点C", "钢水净重", "连铸正样C", "钒铁(FeV50-A)", "钒铁(FeV50-B)", "硅铝合金FeAl30Si25",
-                         "硅锰面（硅锰渣）", "硅铁(合格块)", "硅铁FeSi75-B", "石油焦增碳剂",
-                         "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)", "碳化硅(55%)", "硅钙碳脱氧剂"]
-            scatter_matrix(self.data.loc[:,col],figsize=(25,25))
+                   "硅锰面（硅锰渣）", "硅铁(合格块)", "硅铁FeSi75-B", "石油焦增碳剂",
+                   "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)", "碳化硅(55%)", "硅钙碳脱氧剂"]
+            scatter_matrix(self.data.loc[:, col], figsize=(25, 25))
         plt.show()
 
-    def pearsonr_cal(self):
-        for i in np.arange(self.data.shape[1]):
-            self.pearsonr_rate.append(pearsonr(self.C_label, self.data.iloc[:, i])[1])
-        self.pearsonr_rate = np.array(self.pearsonr_rate)
-
-    def corr_cal(self):
-        self.f, pval = f_regression(self.C_label, self.data, center=True)
-
-    def mutual_info(self, C_label=False):
-        self.read_data()
+    def pearsonr_cal(self,C_label=False):
         if C_label:
             self.label = ["转炉终点温度", "转炉终点C", "钢水净重", "连铸正样C", "钒铁(FeV50-A)", "钒铁(FeV50-B)", "硅铝合金FeAl30Si25",
-                         "硅锰面（硅锰渣）", "硅铁(合格块)", "硅铁FeSi75-B", "石油焦增碳剂",
-                         "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)", "碳化硅(55%)", "硅钙碳脱氧剂"]
+                          "硅锰面（硅锰渣）", "硅铁(合格块)", "硅铁FeSi75-B", "石油焦增碳剂",
+                          "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)", "碳化硅(55%)", "硅钙碳脱氧剂"]
             self.data = self.data[(self.data["C收得率"] > 0) | (self.data["C收得率"] < 1)]
-
-            self.data = self.data.loc[:,
-                        ["转炉终点温度", "转炉终点C", "钢水净重", "连铸正样C", "钒铁(FeV50-A)", "钒铁(FeV50-B)", "硅铝合金FeAl30Si25",
-                         "硅锰面（硅锰渣）", "硅铁(合格块)", "硅铁FeSi75-B", "石油焦增碳剂",
-                         "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)", "碳化硅(55%)", "硅钙碳脱氧剂"]]
+            self.data = self.data.loc[:, self.label]
             self.data = StandardScaler().fit_transform(self.data)
             label = self.data[:, -2]
         else:
             self.label = ["转炉终点温度", "转炉终点Mn", "钢水净重", "连铸正样Mn", "钒铁(FeV50-B)", "硅锰面（硅锰渣）",
-                                          "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)"]
+                          "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)"]
             self.data = self.data[(self.data["Mn收得率"] > 0) | (self.data["Mn收得率"] < 1)]
-            self.data = self.data.loc[:, ["转炉终点温度", "转炉终点Mn", "钢水净重", "连铸正样Mn", "钒铁(FeV50-B)", "硅锰面（硅锰渣）",
-                                          "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)"]]
+            self.data = self.data.loc[:, self.label]
+            self.data = StandardScaler().fit_transform(self.data)
+            label = self.data[:, -1]
+        for i in np.arange(self.data.shape[1]):
+            self.pearsonr_rate.append(pearsonr(label, self.data[:, i])[1])
+        self.pearsonr_rate = zip(self.label, self.pearsonr_rate)
+        #self.pearsonr_rate = np.array(self.pearsonr_rate)
+
+    def mutual_info(self, C_label=False):
+        if C_label:
+            self.label = ["转炉终点温度", "转炉终点C", "钢水净重", "连铸正样C", "钒铁(FeV50-A)", "钒铁(FeV50-B)", "硅铝合金FeAl30Si25",
+                          "硅锰面（硅锰渣）", "硅铁(合格块)", "硅铁FeSi75-B", "石油焦增碳剂",
+                          "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)", "碳化硅(55%)", "硅钙碳脱氧剂"]
+            self.data = self.data[(self.data["C收得率"] > 0) | (self.data["C收得率"] < 1)]
+            self.data = self.data.loc[:, self.label]
+            self.data = StandardScaler().fit_transform(self.data)
+            label = self.data[:, -2]
+        else:
+            self.label = ["转炉终点温度", "转炉终点Mn", "钢水净重", "连铸正样Mn", "钒铁(FeV50-B)", "硅锰面（硅锰渣）",
+                          "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)"]
+            self.data = self.data[(self.data["Mn收得率"] > 0) | (self.data["Mn收得率"] < 1)]
+            self.data = self.data.loc[:, self.label]
             self.data = StandardScaler().fit_transform(self.data)
             label = self.data[:, -1]
         for i in np.arange(self.data.shape[1]):
@@ -71,14 +81,11 @@ class cal_corr:
         self.mutual_info_rate = zip(self.label, self.mutual_info_rate)
         # self.mutual_info_rate = np.array(self.mutual_info_rate)
 
-    def run(self, pearsonr_cal=False, corr_cal=False, mutual_info=True):
+    def run(self, pearsonr_cal=True,mutual_info=True):
         self.read_data()
         if pearsonr_cal:
             self.pearsonr_cal()
             return self.pearsonr_rate
-        if corr_cal:
-            self.corr_cal()
-            return self.f
         if mutual_info:
             self.mutual_info()
             return list(self.mutual_info_rate)
@@ -86,5 +93,6 @@ class cal_corr:
 
 if __name__ == '__main__':
     item = cal_corr()
-    item.plot_corr()
-    print(item.run())
+    # item.plot_corr()
+    for name,value in item.run():
+        print(name,":",value)

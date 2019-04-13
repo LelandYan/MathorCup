@@ -2,10 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb519405-a1d9-44ce-bafa-f1e73d2afcbb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/solution/D题附件1.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/solution/D题附件2.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/solution/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/solution/accuracy_predict.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/solution/data_analysis.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/solution/gen_raw_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accuracy_predict.py" beforeDir="false" afterPath="$PROJECT_DIR$/accuracy_predict.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fill_Mn_C_result.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/fill_Mn_C_result.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/result.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_analysis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delete_data.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,8 +19,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/MathorCup$accuracy_predict__1_.coverage" NAME="accuracy_predict (1) Coverage Results" MODIFIED="1555130977788" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/solution" />
+    <SUITE FILE_PATH="coverage/MathorCup$data_analysis__1_.coverage" NAME="data_analysis (1) Coverage Results" MODIFIED="1555131160103" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MathorCup$get_need_data.coverage" NAME="get_need_data Coverage Results" MODIFIED="1555037234475" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/MathorCup$data_analysis.coverage" NAME="data_analysis Coverage Results" MODIFIED="1555054585819" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MathorCup$data_analysis.coverage" NAME="data_analysis Coverage Results" MODIFIED="1555133153698" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/solution" />
+    <SUITE FILE_PATH="coverage/MathorCup$gen_raw_data__1_.coverage" NAME="gen_raw_data (1) Coverage Results" MODIFIED="1555130970436" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/solution" />
     <SUITE FILE_PATH="coverage/MathorCup$accuracy_predict.coverage" NAME="accuracy_predict Coverage Results" MODIFIED="1555130764347" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MathorCup$predict_Mn_rate.coverage" NAME="predict_Mn_rate Coverage Results" MODIFIED="1555057005617" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MathorCup$data_solution.coverage" NAME="data_solution Coverage Results" MODIFIED="1554991783436" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -33,61 +41,40 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="19" />
+          <entry key="py" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="19" />
+          <entry key="Python" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="28" />
-          <entry key="py" value="9064" />
+          <entry key="py" value="9254" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="28" />
-          <entry key="Python" value="9064" />
+          <entry key="Python" value="9254" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gen_raw_data.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="70" column="26" lean-forward="true" selection-start-line="70" selection-start-column="26" selection-end-line="70" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/accuracy_predict.py">
+        <entry file="file://$PROJECT_DIR$/solution/data_analysis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="63" column="41" selection-start-line="63" selection-start-column="41" selection-end-line="63" selection-end-column="41" />
+            <state relative-caret-position="128">
+              <caret line="86" column="31" lean-forward="true" selection-start-line="86" selection-start-column="31" selection-end-line="86" selection-end-column="31" />
               <folding>
-                <element signature="e#78#96#0" expanded="true" />
-                <element signature="e#701#1184#0" />
-                <element signature="e#1808#2186#0" />
-                <marker date="1555130759155" expanded="true" signature="1429:2233" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/delete_data.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-              <folding>
-                <element signature="e#78#96#0" expanded="true" />
+                <element signature="e#72#90#0" expanded="true" />
+                <element signature="e#828#916#0" />
+                <element signature="e#921#1408#0" />
+                <marker date="1555133104390" expanded="true" signature="4010:4016" ph="..." />
               </folding>
             </state>
           </provider>
@@ -109,12 +96,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/data_solution.py" />
-        <option value="$PROJECT_DIR$/data_analysis.py" />
         <option value="$PROJECT_DIR$/predict_Mn_rate.py" />
         <option value="$PROJECT_DIR$/get_need_data.py" />
         <option value="$PROJECT_DIR$/delete_data.py" />
         <option value="$PROJECT_DIR$/gen_raw_data.py" />
         <option value="$PROJECT_DIR$/accuracy_predict.py" />
+        <option value="$PROJECT_DIR$/data_analysis.py" />
+        <option value="$PROJECT_DIR$/solution/data_analysis.py" />
       </list>
     </option>
   </component>
@@ -146,6 +134,11 @@
               <item name="MathorCup" type="b2602c69:ProjectViewProjectNode" />
               <item name="MathorCup" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="MathorCup" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MathorCup" type="462c0819:PsiDirectoryNode" />
+              <item name="solution" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -160,6 +153,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\lenovo\Desktop\MathorCup\solution" />
       <recent name="C:\Users\lenovo\Desktop\MathorCup" />
     </key>
   </component>
@@ -175,7 +169,29 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.accuracy_predict">
+  <component name="RunManager" selected="Python.data_analysis">
+    <configuration name="accuracy_predict (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="MathorCup" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/solution" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/solution/accuracy_predict.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="accuracy_predict" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="MathorCup" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -198,7 +214,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="data_analysis" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="data_analysis (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="MathorCup" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -220,7 +236,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="delete_data" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="data_analysis" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="MathorCup" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -228,12 +244,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/solution" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/delete_data.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/solution/data_analysis.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -242,7 +258,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="gen_raw_data" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="gen_raw_data (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="MathorCup" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -250,34 +266,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/solution" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gen_raw_data.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="predict_Mn_rate" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="MathorCup" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/predict_Mn_rate.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/solution/gen_raw_data.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -287,19 +281,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.data_analysis" />
-      <item itemvalue="Python.gen_raw_data" />
       <item itemvalue="Python.accuracy_predict" />
-      <item itemvalue="Python.predict_Mn_rate" />
-      <item itemvalue="Python.delete_data" />
+      <item itemvalue="Python.gen_raw_data (1)" />
+      <item itemvalue="Python.accuracy_predict (1)" />
+      <item itemvalue="Python.data_analysis" />
+      <item itemvalue="Python.data_analysis (1)" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.accuracy_predict" />
-        <item itemvalue="Python.gen_raw_data" />
-        <item itemvalue="Python.delete_data" />
-        <item itemvalue="Python.predict_Mn_rate" />
         <item itemvalue="Python.data_analysis" />
+        <item itemvalue="Python.data_analysis (1)" />
+        <item itemvalue="Python.accuracy_predict (1)" />
+        <item itemvalue="Python.gen_raw_data (1)" />
+        <item itemvalue="Python.accuracy_predict" />
       </list>
     </recent_temporary>
   </component>
@@ -325,7 +319,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.43489933" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.13825503" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.1932886" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -378,16 +372,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data_analysis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1175">
-          <caret line="79" column="25" selection-start-line="79" selection-start-column="25" selection-end-line="79" selection-end-column="25" />
-          <folding>
-            <element signature="e#72#90#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/predict_Mn_rate.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -398,12 +382,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/get_need_data.py">
+    <entry file="file://E:/anaconda/envs/machine_learning/Lib/site-packages/sklearn/svm/base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="5" column="18" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+        <state relative-caret-position="148">
+          <caret line="292" column="8" selection-start-line="292" selection-start-column="8" selection-end-line="292" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_analysis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
           <folding>
-            <element signature="e#78#97#0" expanded="true" />
+            <element signature="e#72#90#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -418,29 +409,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://E:/anaconda/envs/machine_learning/Lib/site-packages/sklearn/svm/base.py">
+    <entry file="file://$PROJECT_DIR$/gen_raw_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="292" column="8" selection-start-line="292" selection-start-column="8" selection-end-line="292" selection-end-column="8" />
+        <state relative-caret-position="2220">
+          <caret line="78" column="16" lean-forward="true" selection-start-line="78" selection-start-column="16" selection-end-line="78" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gen_raw_data.py">
+    <entry file="file://$PROJECT_DIR$/solution/gen_raw_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="70" column="26" lean-forward="true" selection-start-line="70" selection-start-column="26" selection-end-line="70" selection-end-column="26" />
+        <state relative-caret-position="330">
+          <caret line="15" column="45" lean-forward="true" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/accuracy_predict.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="63" column="41" selection-start-line="63" selection-start-column="41" selection-end-line="63" selection-end-column="41" />
+        <state relative-caret-position="1707">
+          <caret line="122" column="32" lean-forward="true" selection-start-line="122" selection-start-column="32" selection-end-line="122" selection-end-column="32" />
           <folding>
             <element signature="e#78#96#0" expanded="true" />
             <element signature="e#701#1184#0" />
             <element signature="e#1808#2186#0" />
             <marker date="1555130759155" expanded="true" signature="1429:2233" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/get_need_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="5" column="18" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+          <folding>
+            <element signature="e#78#97#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/solution/accuracy_predict.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/anaconda/envs/machine_learning/Lib/site-packages/sklearn/feature_selection/univariate_selection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-441">
+          <caret line="229" column="4" selection-start-line="229" selection-start-column="4" selection-end-line="229" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/solution/data_analysis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="86" column="31" lean-forward="true" selection-start-line="86" selection-start-column="31" selection-end-line="86" selection-end-column="31" />
+          <folding>
+            <element signature="e#72#90#0" expanded="true" />
+            <element signature="e#828#916#0" />
+            <element signature="e#921#1408#0" />
+            <marker date="1555133104390" expanded="true" signature="4010:4016" ph="..." />
           </folding>
         </state>
       </provider>
