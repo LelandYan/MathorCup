@@ -18,7 +18,7 @@ import matplotlib.pyplot as plt
 import warnings
 warnings.filterwarnings("ignore")
 class cal_corr:
-    def __init__(self, name="result.xlsx"):
+    def __init__(self, name="process_C_Mn_Si_S_P_data.xlsx"):
         self.name = name
         self.pearsonr_rate = []
         self.mutual_info_rate = []
