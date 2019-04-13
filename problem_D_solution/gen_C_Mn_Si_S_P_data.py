@@ -107,9 +107,10 @@ class gen_data:
         item = ["Mn收得率","C收得率","S收得率","P收得率","Si收得率"]
         # 对结果进行处理 去除inf和null值
         self.data.fillna(np.inf, inplace=True)
-        for i in item:
-            self.data = self.data[~self.data[i].isin(['inf'])]
-
+        print(self.data["C收得率"])
+        # for i in item:
+        #     self.data = self.data[~self.data[i].isin(['inf'])]
+        print(self.data["C收得率"])
         self.data = pd.concat([self.data, self.left_data], axis=0)
         # # 将收得率大于1的进行剔除
         # for i in item:
@@ -119,7 +120,7 @@ class gen_data:
         self.data = self.data[~self.data["转炉终点温度"].isnull()]
         self.data = self.data[~self.data["钢水净重"].isnull()]
         for i in self.item:
-            self.data = self.data[~(self.data[i] == np.inf)]
+            # self.data = self.data[~(self.data[i] == np.inf)]
             # self.data = self.data[~self.data[i].isnull()]
             self.data = self.data[~(self.data[i] == np.nan)]
         # 储存结果文件
