@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb519405-a1d9-44ce-bafa-f1e73d2afcbb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/solution/D题附件1.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/solution/D题附件2.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/solution/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/solution/accuracy_predict.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/solution/data_analysis.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/solution/gen_raw_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_analysis.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/delete_data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/solution/accuracy_predict.py" beforeDir="false" afterPath="$PROJECT_DIR$/solution/accuracy_predict.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/solution/data_analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/solution/data_analysis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/solution/gen_raw_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/solution/gen_raw_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/solution/result.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/solution/result.xlsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,16 +14,30 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/MathorCup$accuracy_predict__1_.coverage" NAME="accuracy_predict (1) Coverage Results" MODIFIED="1555130977788" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/solution" />
     <SUITE FILE_PATH="coverage/MathorCup$data_analysis__1_.coverage" NAME="data_analysis (1) Coverage Results" MODIFIED="1555131160103" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MathorCup$accuracy_predict__1_.coverage" NAME="accuracy_predict (1) Coverage Results" MODIFIED="1555136582201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/solution" />
     <SUITE FILE_PATH="coverage/MathorCup$get_need_data.coverage" NAME="get_need_data Coverage Results" MODIFIED="1555037234475" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/MathorCup$data_analysis.coverage" NAME="data_analysis Coverage Results" MODIFIED="1555133153698" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/solution" />
+    <SUITE FILE_PATH="coverage/MathorCup$data_analysis.coverage" NAME="data_analysis Coverage Results" MODIFIED="1555141091244" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/solution" />
     <SUITE FILE_PATH="coverage/MathorCup$gen_raw_data__1_.coverage" NAME="gen_raw_data (1) Coverage Results" MODIFIED="1555130970436" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/solution" />
     <SUITE FILE_PATH="coverage/MathorCup$accuracy_predict.coverage" NAME="accuracy_predict Coverage Results" MODIFIED="1555130764347" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MathorCup$predict_Mn_rate.coverage" NAME="predict_Mn_rate Coverage Results" MODIFIED="1555057005617" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MathorCup$data_solution.coverage" NAME="data_solution Coverage Results" MODIFIED="1554991783436" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MathorCup$gen_raw_data.coverage" NAME="gen_raw_data Coverage Results" MODIFIED="1555112751830" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MathorCup$delete_data.coverage" NAME="delete_data Coverage Results" MODIFIED="1555083256706" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-2102336563">
@@ -41,24 +50,24 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="27" />
+          <entry key="py" value="30" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="27" />
+          <entry key="Python" value="30" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="28" />
-          <entry key="py" value="9254" />
+          <entry key="py" value="10293" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="28" />
-          <entry key="Python" value="9254" />
+          <entry key="Python" value="10293" />
         </counts>
       </usages-collector>
     </session>
@@ -68,14 +77,35 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/solution/data_analysis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="86" column="31" lean-forward="true" selection-start-line="86" selection-start-column="31" selection-end-line="86" selection-end-column="31" />
+            <state relative-caret-position="279">
+              <caret line="96" column="22" selection-start-line="96" selection-start-column="22" selection-end-line="96" selection-end-column="22" />
               <folding>
                 <element signature="e#72#90#0" expanded="true" />
-                <element signature="e#828#916#0" />
-                <element signature="e#921#1408#0" />
-                <marker date="1555133104390" expanded="true" signature="4010:4016" ph="..." />
+                <marker date="1555141091236" expanded="true" signature="4009:4015" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/solution/accuracy_predict.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-4894">
+              <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+              <folding>
+                <element signature="e#4932#5906#0" />
+                <marker date="1555136582192" expanded="true" signature="6341:7221" ph="..." />
+                <marker date="1555136582192" expanded="true" signature="7472:7479" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/solution/gen_raw_data.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="74" column="45" selection-start-line="74" selection-start-column="30" selection-end-line="75" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -102,6 +132,8 @@
         <option value="$PROJECT_DIR$/gen_raw_data.py" />
         <option value="$PROJECT_DIR$/accuracy_predict.py" />
         <option value="$PROJECT_DIR$/data_analysis.py" />
+        <option value="$PROJECT_DIR$/solution/accuracy_predict.py" />
+        <option value="$PROJECT_DIR$/solution/gen_raw_data.py" />
         <option value="$PROJECT_DIR$/solution/data_analysis.py" />
       </list>
     </option>
@@ -112,7 +144,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="646" />
     <option name="y" value="166" />
     <option name="width" value="1193" />
@@ -290,8 +322,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.data_analysis" />
-        <item itemvalue="Python.data_analysis (1)" />
         <item itemvalue="Python.accuracy_predict (1)" />
+        <item itemvalue="Python.data_analysis (1)" />
         <item itemvalue="Python.gen_raw_data (1)" />
         <item itemvalue="Python.accuracy_predict" />
       </list>
@@ -311,15 +343,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1488" height="878" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1488" height="878" extended-state="7" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.15664336" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.16153847" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.13825503" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.21744967" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.1932886" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -334,7 +365,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Database" order="4" weight="0.32867134" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -416,13 +447,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/solution/gen_raw_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" column="45" lean-forward="true" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/accuracy_predict.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1707">
@@ -446,13 +470,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/solution/accuracy_predict.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://E:/anaconda/envs/machine_learning/Lib/site-packages/sklearn/feature_selection/univariate_selection.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-441">
@@ -460,15 +477,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://E:/anaconda/envs/machine_learning/Lib/site-packages/sklearn/utils/validation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="419" selection-start-line="419" selection-end-line="419" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/solution/gen_raw_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="74" column="45" selection-start-line="74" selection-start-column="30" selection-end-line="75" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/solution/accuracy_predict.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4894">
+          <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+          <folding>
+            <element signature="e#4932#5906#0" />
+            <marker date="1555136582192" expanded="true" signature="6341:7221" ph="..." />
+            <marker date="1555136582192" expanded="true" signature="7472:7479" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/solution/data_analysis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="86" column="31" lean-forward="true" selection-start-line="86" selection-start-column="31" selection-end-line="86" selection-end-column="31" />
+        <state relative-caret-position="279">
+          <caret line="96" column="22" selection-start-line="96" selection-start-column="22" selection-end-line="96" selection-end-column="22" />
           <folding>
             <element signature="e#72#90#0" expanded="true" />
-            <element signature="e#828#916#0" />
-            <element signature="e#921#1408#0" />
-            <marker date="1555133104390" expanded="true" signature="4010:4016" ph="..." />
+            <marker date="1555141091236" expanded="true" signature="4009:4015" ph="..." />
           </folding>
         </state>
       </provider>

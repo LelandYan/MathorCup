@@ -64,6 +64,7 @@ class gen_data:
         self.data = self.data[~self.data["Mn收得率"].isin(['inf'])]
         self.data = self.data[~self.data["C收得率"].isin(['inf'])]
 
+
         self.data = pd.concat([self.data, self.left_data], axis=0)
         # 将收得率大于1的进行剔除
         self.data = self.data[self.data["C收得率"] < 1]
