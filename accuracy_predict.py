@@ -19,8 +19,11 @@ class cal_accuracy:
     def __init__(self, name="process_data.xlsx"):
         self.file_name = name
 
-    def read_data(self):
-        self.data = pd.read_excel(self.file_name)
+    def read_data(self,filename=None):
+        if filename:
+            self.data = pd.read_excel(filename)
+        else:
+            self.data = pd.read_excel(self.file_name)
         # print(self.data.info())
 
     def C_model_cal_C(self):
@@ -58,8 +61,7 @@ class cal_accuracy:
                       "硅锰面（硅锰渣）", "硅铁(合格块)", "硅铁FeSi75-B", "石油焦增碳剂",
                       "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)", "碳化硅(55%)", "硅钙碳脱氧剂", ]
         # 剔除, '转炉终点Mn'
-        data = data.loc[:192, self.label]
-        # print(data.info())
+        data = data.loc[:191, self.label]
         return data, C_Mn_label
 
     def Mn_model_cal_Mn(self):
@@ -72,7 +74,7 @@ class cal_accuracy:
         data_Mn = data.loc[:192, self.label]
         return data_Mn, Mn_label
 
-    def train(self, C=False, Mn=False, C_Mn_cal_Mn_C=True, C_Mn_cal_Mn=False):
+    def train(self, C=False, Mn=False, C_Mn_cal_Mn_C=False, C_Mn_cal_Mn=False):
         data = None
         label = None
         if C:
@@ -83,6 +85,8 @@ class cal_accuracy:
             data, label = self.C_Mn_model_cal_C_Mn()
         if C_Mn_cal_Mn:
             data, label = self.C_Mn_model_cal_Mn()  # 0.020663763357
+        # print(data.shape)
+        # print(label.shape)
         X_train, X_test, y_train, y_test = train_test_split(data, label, test_size=0.2, random_state=42)
         self.std = StandardScaler()
         self.std.fit(X_train)
@@ -103,18 +107,20 @@ class cal_accuracy:
 
     def run(self):
         self.read_data()
-        self.train()
+        self.train(C_Mn_cal_Mn_C=False, C_Mn_cal_Mn=True)
+        self.fill_Mn()
+        self.read_data(filename="result.xlsx")
+        self.train(C_Mn_cal_Mn_C=True, C_Mn_cal_Mn=False)
+        self.fill_C_Mn()
 
     def fill_Mn(self):
         data = self.data.iloc[192:611, :]
         data_input = data.loc[:, self.label]
-        print(data_input.shape)
         data_input = self.std.transform(data_input)
         res = self.model.predict(data_input).ravel()
-        print(res.shape)
         for i in np.arange(len(res)):
             self.data.loc[192 + i:, "Mn收得率"] = res[i]
-        self.data.to_excel("fill_Mn_C_result.xlsx", index=False)
+        self.data.to_excel("result.xlsx", index=False)
 
     def fill_C_Mn(self):
         data = self.data.iloc[610:, :]
@@ -125,10 +131,8 @@ class cal_accuracy:
         for i in np.arange(len(res)):
             self.data.loc[610+i:, "C收得率"] = res[i][0]
             self.data.loc[610+i:, "Mn收得率"] = res[i][1]
-        self.data.to_excel("fill_Mn_C_result.xlsx", index=False)
+        self.data.to_excel("result.xlsx", index=False)
 
 if __name__ == '__main__':
     item = cal_accuracy()
     item.run()
-    # item.fill_Mn()
-    item.fill_C_Mn()
