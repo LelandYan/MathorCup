@@ -40,7 +40,6 @@ class gen_data:
         components = np.array(self.label.iloc[:, 1][components])
         div_num = data_c * components
         sum_data = div_num.sum(axis=1)
-        # self.data["C元素的质量总和"] = sum_data
         self.data["C收得率"] = (self.data['连铸正样C'] - self.data["转炉终点C"]) * self.data['钢水净重'] / sum_data
         self.left_data["C收得率"] = 0
 

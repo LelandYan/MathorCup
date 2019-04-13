@@ -18,7 +18,7 @@ from sklearn.externals import joblib
 from sklearn.neural_network import MLPRegressor
 
 class cal_accuracy:
-    def __init__(self, name="process_C_Mn_data.xlsx"):
+    def __init__(self, name="process_C_Mn_Si_S_P_data.xlsx"):
         self.file_name = name
 
     def read_data(self,filename=None):
@@ -40,7 +40,7 @@ class cal_accuracy:
 
     def C_Mn_model_cal_Mn(self):
         data = self.data[(self.data["Mn收得率"] >= 0) | (self.data["Mn收得率"] < 1)]
-        Mn_label = data.iloc[:192, -4]
+        Mn_label = data.iloc[:193, -4]
         self.label = ["转炉终点温度", "转炉终点C", '钢水净重', "钒铁(FeV50-A)", "钒铁(FeV50-B)", "硅铝合金FeAl30Si25", "硅铝锰合金球",
                       "硅锰面（硅锰渣）", "硅铁(合格块)", "硅铁FeSi75-B", "石油焦增碳剂",
                       "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)", "碳化硅(55%)", "硅钙碳脱氧剂", ]
@@ -50,11 +50,13 @@ class cal_accuracy:
         #               "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)", "碳化硅(55%)", "硅钙碳脱氧剂", ]
         # 剔除, '转炉终点Mn'
         data = data.loc[:192, self.label]
+        print(data.shape)
+        print(Mn_label.shape)
         return data, Mn_label
 
     def C_Mn_model_cal_C_Mn(self):
         data = self.data[(self.data["Mn收得率"] >= 0) | (self.data["Mn收得率"] < 1)]
-        C_Mn_label = data.iloc[:192, -5:-3]
+        C_Mn_label = data.iloc[:193, -5:-3]
         print(C_Mn_label.shape)
         # self.label = ["转炉终点温度", "转炉终点C", '钢水净重', '连铸正样C', '连铸正样Mn',
         #                               "钒铁(FeV50-A)", "钒铁(FeV50-B)", "硅铝合金FeAl30Si25", "硅铝锰合金球",
@@ -64,7 +66,7 @@ class cal_accuracy:
                       "硅锰面（硅锰渣）", "硅铁(合格块)", "硅铁FeSi75-B", "石油焦增碳剂",
                       "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)", "碳化硅(55%)", "硅钙碳脱氧剂", ]
         # 剔除, '转炉终点Mn'
-        data = data.loc[:191, self.label]
+        data = data.loc[:192, self.label]
         return data, C_Mn_label
 
     def Mn_model_cal_Mn(self):
@@ -169,20 +171,21 @@ class cal_accuracy:
         self.read_data()
         self.train(C_Mn_cal_Mn_C=False, C_Mn_cal_Mn=True)
         self.fill_Mn()
-        self.read_data(filename="result.xlsx")
+        self.read_data(filename="result_C_Mn_Si_S_P_.xlsx")
         self.train(C_Mn_cal_Mn_C=True, C_Mn_cal_Mn=False)
         self.fill_C_Mn()
 
 
 
     def fill_Mn(self):
-        data = self.data.iloc[192:611, :]
+        data = self.data.iloc[229:610, :]
+        print(data)
         data_input = data.loc[:, self.label]
         data_input = self.std.transform(data_input)
         res = self.model.predict(data_input).ravel()
         for i in np.arange(len(res)):
             self.data.loc[192 + i:, "Mn收得率"] = res[i]
-        self.data.to_excel("result.xlsx", index=False)
+        self.data.to_excel("result_C_Mn_Si_S_P_.xlsx", index=False)
 
     def fill_C_Mn(self):
         data = self.data.iloc[610:, :]
@@ -192,8 +195,8 @@ class cal_accuracy:
         for i in np.arange(len(res)):
             self.data.loc[610+i:, "C收得率"] = res[i][0]
             self.data.loc[610+i:, "Mn收得率"] = res[i][1]
-        self.data.to_excel("result.xlsx", index=False)
+        self.data.to_excel("result_C_Mn_Si_S_P_.xlsx", index=False)
 
 if __name__ == '__main__':
-    item = cal_accuracy("process_C_Mn_data.xlsx")
+    item = cal_accuracy("process_C_Mn_Si_S_P_data.xlsx")
     item.run()
