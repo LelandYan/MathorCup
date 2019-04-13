@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bb519405-a1d9-44ce-bafa-f1e73d2afcbb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/solution/accuracy_predict.py" beforeDir="false" afterPath="$PROJECT_DIR$/solution/accuracy_predict.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/solution/data_analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/solution/data_analysis.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/solution/gen_raw_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/solution/gen_raw_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/solution/result.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/solution/result.xlsx" afterDir="false" />
-    </list>
+    <list default="true" id="bb519405-a1d9-44ce-bafa-f1e73d2afcbb" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,8 +72,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/solution/data_analysis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="96" column="22" selection-start-line="96" selection-start-column="22" selection-end-line="96" selection-end-column="22" />
+            <state relative-caret-position="-1401">
+              <caret line="37" column="86" lean-forward="true" selection-start-line="35" selection-start-column="12" selection-end-line="37" selection-end-column="86" />
               <folding>
                 <element signature="e#72#90#0" expanded="true" />
                 <marker date="1555141091236" expanded="true" signature="4009:4015" ph="..." />
@@ -144,7 +139,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="646" />
     <option name="y" value="166" />
     <option name="width" value="1193" />
@@ -343,14 +338,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1488" height="878" extended-state="7" />
+    <frame x="-7" y="-7" width="1488" height="878" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.16153847" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.21744967" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.21744967" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.1932886" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -505,8 +501,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/solution/data_analysis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="96" column="22" selection-start-line="96" selection-start-column="22" selection-end-line="96" selection-end-column="22" />
+        <state relative-caret-position="-1401">
+          <caret line="37" column="86" lean-forward="true" selection-start-line="35" selection-start-column="12" selection-end-line="37" selection-end-column="86" />
           <folding>
             <element signature="e#72#90#0" expanded="true" />
             <marker date="1555141091236" expanded="true" signature="4009:4015" ph="..." />
