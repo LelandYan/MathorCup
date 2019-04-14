@@ -2,7 +2,6 @@
 __author__ = 'LelandYan'
 __date__ = '2019/4/13 22:55'
 
-
 import numpy as np
 import pandas as pd
 import tensorflow as tf
@@ -17,16 +16,16 @@ from sklearn.preprocessing import Imputer
 from sklearn.externals import joblib
 from sklearn.neural_network import MLPRegressor
 
+
 class cal_accuracy:
     def __init__(self, name="process_C_Mn_Si_S_P_data.xlsx"):
         self.file_name = name
 
-    def read_data(self,filename=None):
+    def read_data(self, filename=None):
         if filename:
             self.data = pd.read_excel(filename)
         else:
             self.data = pd.read_excel(self.file_name)
-        # print(self.data.info())
 
     def C_model_cal_C(self):
         data = self.data[(self.data["C收得率"] >= 0) | (self.data["C收得率"] < 1)]
@@ -50,8 +49,6 @@ class cal_accuracy:
         #               "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)", "碳化硅(55%)", "硅钙碳脱氧剂", ]
         # 剔除, '转炉终点Mn'
         data = data.loc[:192, self.label]
-        print(data.shape)
-        print(Mn_label.shape)
         return data, Mn_label
 
     def C_Mn_model_cal_C_Mn(self):
@@ -79,7 +76,14 @@ class cal_accuracy:
         data_Mn = data.loc[:192, self.label]
         return data_Mn, Mn_label
 
-    def train(self, C=False, Mn=False, C_Mn_cal_Mn_C=False, C_Mn_cal_Mn=False):
+    def C_Mn_S_P_Si_model_cal_C_Mn_S_P_Si(self):
+        data = 0
+        label = 0
+
+
+        return data, label
+
+    def train(self, C=False, Mn=False, C_Mn_cal_Mn_C=False, C_Mn_cal_Mn=False, C_Mn_S_P_Si_cal_C_Mn_S_P_Si=False):
         data = None
         label = None
         if C:
@@ -90,10 +94,12 @@ class cal_accuracy:
             data, label = self.C_Mn_model_cal_C_Mn()
         if C_Mn_cal_Mn:
             data, label = self.C_Mn_model_cal_Mn()  # 0.020663763357
-        self.linear_model(data,label)
+        if C_Mn_S_P_Si_cal_C_Mn_S_P_Si:
+            data, label = self.C_Mn_S_P_Si_model_cal_C_Mn_S_P_Si()
+        self.linear_model(data, label)
         # self.network_model(data,label)
 
-    def network_model(self,data,label):
+    def network_model(self, data, label):
         try:
             output = label.shape[1]
         except:
@@ -104,17 +110,19 @@ class cal_accuracy:
         X_train = self.std.transform(X_train)
         X_test = self.std.transform(X_test)
         feature = X_train.shape[1]
-        x = tf.placeholder(tf.float32,[None,feature],name='X')
-        y = tf.placeholder(tf.float32,[None,output],name='Y')
+        x = tf.placeholder(tf.float32, [None, feature], name='X')
+        y = tf.placeholder(tf.float32, [None, output], name='Y')
         with tf.name_scope("Model1"):
-            w = tf.Variable(tf.random_uniform([feature,output]),name="W")
-            b = tf.Variable(1.0,name='b')
-            def model(x,w,b):
-                return tf.matmul(x,w) + b
-            pred = model(x,w,b)
+            w = tf.Variable(tf.random_uniform([feature, output]), name="W")
+            b = tf.Variable(1.0, name='b')
+
+            def model(x, w, b):
+                return tf.matmul(x, w) + b
+
+            pred = model(x, w, b)
         train_epochs = 60
         learning_rate = 0.01
-        loss_function = tf.reduce_mean(tf.pow(y-pred,2))
+        loss_function = tf.reduce_mean(tf.pow(y - pred, 2))
         optimizer = tf.train.GradientDescentOptimizer(learning_rate).minimize(loss_function)
         sess = tf.Session()
         init = tf.global_variables_initializer()
@@ -148,7 +156,8 @@ class cal_accuracy:
         # 模型的存储
         # joblib.dump(self.model, "Mn.m")
         print(np.sqrt(mean_squared_error(predict, y_test)))
-    def linear_model(self,data,label):
+
+    def linear_model(self, data, label):
         X_train, X_test, y_train, y_test = train_test_split(data, label, test_size=0.2, random_state=42)
         self.std = StandardScaler()
         self.std.fit(X_train)
@@ -172,10 +181,10 @@ class cal_accuracy:
         self.train(C_Mn_cal_Mn_C=False, C_Mn_cal_Mn=True)
         self.fill_Mn()
         self.read_data(filename="result_C_Mn_Si_S_P_.xlsx")
+        # self.train(C_Mn_cal_Mn_C=True, C_Mn_cal_Mn=False)
+        # self.fill_C_Mn()
         self.train(C_Mn_cal_Mn_C=True, C_Mn_cal_Mn=False)
-        self.fill_C_Mn()
-
-
+        self.fill_C_Mn_S_P_Si()
 
     def fill_Mn(self):
         data = self.data.iloc[229:610, :]
@@ -193,9 +202,23 @@ class cal_accuracy:
         data_input = self.std.transform(data_input)
         res = np.array(self.model.predict(data_input))
         for i in np.arange(len(res)):
-            self.data.loc[610+i:, "C收得率"] = res[i][0]
-            self.data.loc[610+i:, "Mn收得率"] = res[i][1]
+            self.data.loc[610 + i:, "C收得率"] = res[i][0]
+            self.data.loc[610 + i:, "Mn收得率"] = res[i][1]
         self.data.to_excel("result_C_Mn_Si_S_P_.xlsx", index=False)
+
+    def fill_C_Mn_S_P_Si(self):
+        data = self.data.iloc[610:, :]
+        data_input = data.loc[:, self.label]
+        data_input = self.std.transform(data_input)
+        res = np.array(self.model.predict(data_input))
+        for i in np.arange(len(res)):
+            self.data.loc[610 + i:, "C收得率"] = res[i][0]
+            self.data.loc[610 + i:, "Mn收得率"] = res[i][1]
+            self.data.loc[610 + i:, "S收得率"] = res[i][2]
+            self.data.loc[610 + i:, "P收得率"] = res[i][3]
+            self.data.loc[610 + i:, "Si收得率"] = res[i][4]
+        self.data.to_excel("result_C_Mn_Si_S_P_.xlsx", index=False)
+
 
 if __name__ == '__main__':
     item = cal_accuracy("process_C_Mn_Si_S_P_data.xlsx")
