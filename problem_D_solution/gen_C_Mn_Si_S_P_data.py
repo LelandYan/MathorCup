@@ -33,9 +33,6 @@ class gen_data:
         self.data_com = self.data.iloc[:, 13:]
         data_c = self.data_com.iloc[:, [1, 2, 4, 6, 7, 8, 9, 10, 11, 12, 13]]
         C = self.label.iloc[:, 1]
-        # self.data_com = self.data.iloc[:, 5:]
-        # data_c = self.data_com.iloc[:, [0, 1, 3, 4, 5, 6, 7, 8, 9, 10, 11]]
-        # C = self.label.iloc[:, 1]
         components = (C != 0)
         components = np.array(self.label.iloc[:, 1][components])
         div_num = data_c * components
@@ -107,21 +104,23 @@ class gen_data:
         item = ["Mn收得率","C收得率","S收得率","P收得率","Si收得率"]
         # 对结果进行处理 去除inf和null值
         self.data.fillna(np.inf, inplace=True)
-        print(self.data["C收得率"])
-        # for i in item:
-        #     self.data = self.data[~self.data[i].isin(['inf'])]
-        print(self.data["C收得率"])
+        self.data.replace(np.inf,0,inplace=True)
+        self.left_data.replace(np.inf, 0)
+        # print(self.data["C收得率"])
+        for i in item:
+            self.data = self.data[~self.data[i].isin(['inf'])]
+        # print(self.data["C收得率"])
         self.data = pd.concat([self.data, self.left_data], axis=0)
-        # # 将收得率大于1的进行剔除
+        # 对【Mn收得率","C收得率","S收得率","P收得率","Si收得率】进行数据的预处理
         # for i in item:
-        #     self.data = self.data[self.data[i] < 1]
+        #     self.data = self.data[(self.data[i] < 1) ]
         # 将转炉终点温度为0的剔除
         self.data = self.data[self.data["转炉终点温度"] != 0]
         self.data = self.data[~self.data["转炉终点温度"].isnull()]
         self.data = self.data[~self.data["钢水净重"].isnull()]
         for i in self.item:
-            # self.data = self.data[~(self.data[i] == np.inf)]
-            # self.data = self.data[~self.data[i].isnull()]
+            self.data = self.data[~(self.data[i] == np.inf)]
+            self.data = self.data[~self.data[i].isnull()]
             self.data = self.data[~(self.data[i] == np.nan)]
         # 储存结果文件
         self.data.to_excel("process_C_Mn_Si_S_P_data.xlsx", index=False)
