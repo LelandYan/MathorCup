@@ -162,6 +162,7 @@ class cal_accuracy:
         # 模型的存储
         # joblib.dump(self.model, "Mn.m")
         print(np.sqrt(mean_squared_error(y_pred, y_test)))
+        print(1-(np.abs(y_pred-y_test))/y_pred)
 
     def run(self):
         self.read_data()
