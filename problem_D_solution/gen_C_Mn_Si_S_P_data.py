@@ -15,6 +15,8 @@ class gen_data:
         # 获取整个数据集
         self.data = pd.read_excel("D题附件1.xlsx")
         self.label = pd.read_excel("D题附件2.xlsx")
+        # self.data = self.data.fillna("null")
+        # self.data = self.data[~self.data.isin(['null'])]
         self.label = self.label.fillna(0)
         self.item = ["钢号", "转炉终点温度", "转炉终点C", '转炉终点Mn', '转炉终点S', '转炉终点P', '转炉终点Si', '钢水净重',
                      '连铸正样C', '连铸正样Mn', '连铸正样S', '连铸正样P', '连铸正样Si', "低铝硅铁",
@@ -77,7 +79,6 @@ class gen_data:
         components = np.array(self.label.iloc[:, 1][components])
         div_num = data_P * components
         sum_data = div_num.sum(axis=1)
-        # self.data["C元素的质量总和"] = sum_data
         self.data["P收得率"] = (self.data['连铸正样P'] - self.data["转炉终点P"]) * self.data['钢水净重'] / sum_data
         self.left_data["P收得率"] = 0
 
@@ -103,20 +104,21 @@ class gen_data:
         self.cal_Si()
         item = ["Mn收得率","C收得率","S收得率","P收得率","Si收得率"]
         # 对结果进行处理 去除inf和null值
-        self.data.fillna(np.inf, inplace=True)
-        self.data.replace(np.inf,0,inplace=True)
-        self.left_data.replace(np.inf, 0)
-        # print(self.data["C收得率"])
         for i in item:
-            self.data = self.data[~self.data[i].isin(['inf'])]
+            self.data[i].fillna(np.inf, inplace=True)
+            self.data[i].replace(np.inf,0,inplace=True)
+            self.left_data[i].replace(np.inf, 0)
+        # print(self.data["C收得率"])
+        # for i in item:
+        #     self.data = self.data[~self.data[i].isin(['inf'])]
         # print(self.data["C收得率"])
         self.data = pd.concat([self.data, self.left_data], axis=0)
         # 对【Mn收得率","C收得率","S收得率","P收得率","Si收得率】进行数据的预处理
         # for i in item:
         #     self.data = self.data[(self.data[i] < 1) ]
         # 将转炉终点温度为0的剔除
-        print(self.data.shape)
         self.data = self.data[self.data["转炉终点温度"] != 0]
+        self.data = self.data[(self.data["转炉终点C"] != 0) & (~self.data["转炉终点C"].isnull())]
         self.data = self.data[~self.data["转炉终点温度"].isnull()]
         self.data = self.data[~self.data["钢水净重"].isnull()]
         print(self.data.shape)
@@ -126,7 +128,9 @@ class gen_data:
             self.data = self.data[~(self.data[i] == np.nan)]
         print(self.data.shape)
         # 储存结果文件
+        print("end")
         self.data.to_excel("process_C_Mn_Si_S_P_data.xlsx", index=False)
+        print("end")
 
 
 if __name__ == '__main__':

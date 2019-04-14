@@ -27,82 +27,32 @@ class cal_accuracy:
         else:
             self.data = pd.read_excel(self.file_name)
 
-    def C_model_cal_C(self):
+    def C_Mn_S_P_Si_model_cal_C_Mn_S_P_Si(self):
         data = self.data[(self.data["C收得率"] >= 0) | (self.data["C收得率"] < 1)]
-        # 获得C收得率
-        C_label = data.iloc[:, -5]
-        self.label = ["转炉终点温度", "转炉终点C", "钢水净重", "连铸正样C", "钒铁(FeV50-A)", "钒铁(FeV50-B)", "硅铝合金FeAl30Si25",
-                      "硅锰面（硅锰渣）", "硅铁(合格块)", "硅铁FeSi75-B", "石油焦增碳剂",
-                      "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)", "碳化硅(55%)", "硅钙碳脱氧剂"]
-        data_C = data.loc[:, self.label]
-        return data_C, C_label
-
-    def C_Mn_model_cal_Mn(self):
-        data = self.data[(self.data["Mn收得率"] >= 0) | (self.data["Mn收得率"] < 1)]
-        Mn_label = data.iloc[:193, -4]
-        self.label = ["转炉终点温度", "转炉终点C", '钢水净重', "钒铁(FeV50-A)", "钒铁(FeV50-B)", "硅铝合金FeAl30Si25", "硅铝锰合金球",
-                      "硅锰面（硅锰渣）", "硅铁(合格块)", "硅铁FeSi75-B", "石油焦增碳剂",
-                      "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)", "碳化硅(55%)", "硅钙碳脱氧剂", ]
-        # self.label = ["转炉终点温度", "转炉终点C", '钢水净重', '连铸正样C', '连铸正样Mn',
-        #               "钒铁(FeV50-A)", "钒铁(FeV50-B)", "硅铝合金FeAl30Si25", "硅铝锰合金球",
-        #               "硅锰面（硅锰渣）", "硅铁(合格块)", "硅铁FeSi75-B", "石油焦增碳剂",
-        #               "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)", "碳化硅(55%)", "硅钙碳脱氧剂", ]
-        # 剔除, '转炉终点Mn'
-        data = data.loc[:192, self.label]
-        return data, Mn_label
-
-    def C_Mn_model_cal_C_Mn(self):
-        data = self.data[(self.data["Mn收得率"] >= 0) | (self.data["Mn收得率"] < 1)]
-        C_Mn_label = data.iloc[:193, -5:-3]
-        # self.label = ["转炉终点温度", "转炉终点C", '钢水净重', '连铸正样C', '连铸正样Mn',
-        #                               "钒铁(FeV50-A)", "钒铁(FeV50-B)", "硅铝合金FeAl30Si25", "硅铝锰合金球",
-        #                               "硅锰面（硅锰渣）", "硅铁(合格块)", "硅铁FeSi75-B", "石油焦增碳剂",
-        #                               "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)", "碳化硅(55%)", "硅钙碳脱氧剂", ]
-        self.label = ["转炉终点温度", "转炉终点C", '钢水净重', "钒铁(FeV50-A)", "钒铁(FeV50-B)", "硅铝合金FeAl30Si25", "硅铝锰合金球",
-                      "硅锰面（硅锰渣）", "硅铁(合格块)", "硅铁FeSi75-B", "石油焦增碳剂",
+        label = data.iloc[:193, -5:-1]
+        self.label = ["转炉终点温度", "转炉终点C", "转炉终点S", "转炉终点Si", '钢水净重', "钒铁(FeV50-A)", "钒铁(FeV50-B)", "硅铝合金FeAl30Si25",
+                      "硅铝锰合金球", "硅锰面（硅锰渣）", "硅铁(合格块)", "硅铁FeSi75-B", "石油焦增碳剂",
                       "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)", "碳化硅(55%)", "硅钙碳脱氧剂", ]
         # 剔除, '转炉终点Mn'
         data = data.loc[:192, self.label]
-        return data, C_Mn_label
+        return data, label
 
-    def Mn_model_cal_Mn(self):
-        # 获得Mn收得率
+    def C_Mn_S_P_Si_model_cal_Mn_S_P(self):
         data = self.data[(self.data["Mn收得率"] >= 0) | (self.data["Mn收得率"] < 1)]
         Mn_label = data.iloc[:192, -4]
-        self.label = ["转炉终点温度", "钢水净重", "钒铁(FeV50-B)", "硅锰面（硅锰渣）",
-                      "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)"]
+        self.label = ["转炉终点温度", "转炉终点C", '钢水净重', "钒铁(FeV50-A)", "钒铁(FeV50-B)", "硅铝合金FeAl30Si25", "硅铝锰合金球",
+                      "硅锰面（硅锰渣）", "硅铁(合格块)", "硅铁FeSi75-B", "石油焦增碳剂",
+                      "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)", "碳化硅(55%)", "硅钙碳脱氧剂", ]
         # 剔除, "连铸正样Mn"
         data_Mn = data.loc[:192, self.label]
         return data_Mn, Mn_label
 
-    def C_Mn_S_P_Si_model_cal_C_Mn_S_P_Si(self):
-        data = self.data[(self.data["C收得率"] >= 0) | (self.data["C收得率"] < 1)]
-        C_Mn_label = data.iloc[:193, -5:-1]
-        # self.label = ["转炉终点温度", "转炉终点C", '钢水净重', '连铸正样C', '连铸正样Mn',
-        #                               "钒铁(FeV50-A)", "钒铁(FeV50-B)", "硅铝合金FeAl30Si25", "硅铝锰合金球",
-        #                               "硅锰面（硅锰渣）", "硅铁(合格块)", "硅铁FeSi75-B", "石油焦增碳剂",
-        #                               "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)", "碳化硅(55%)", "硅钙碳脱氧剂", ]
-        self.label = ["转炉终点温度", "转炉终点C", '钢水净重', "钒铁(FeV50-A)", "钒铁(FeV50-B)", "硅铝合金FeAl30Si25", "硅铝锰合金球",
-                      "硅锰面（硅锰渣）", "硅铁(合格块)", "硅铁FeSi75-B", "石油焦增碳剂",
-                      "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)", "碳化硅(55%)", "硅钙碳脱氧剂", ]
-        # 剔除, '转炉终点Mn'
-        data = data.loc[:192, self.label]
-        return data, C_Mn_label
-
-
-        return data, label
-
-    def train(self, C=False, Mn=False, C_Mn_cal_Mn_C=False, C_Mn_cal_Mn=False, C_Mn_S_P_Si_cal_C_Mn_S_P_Si=False):
+    def train(self, C_Mn_S_P_Si_cal_Mn_S_P=False,
+              C_Mn_S_P_Si_cal_C_Mn_S_P_Si=False):
         data = None
         label = None
-        if C:
-            data, label = self.C_model_cal_C()
-        if Mn:
-            data, label = self.Mn_model_cal_Mn()  # 0.0301574843803
-        if C_Mn_cal_Mn_C:
-            data, label = self.C_Mn_model_cal_C_Mn()
-        if C_Mn_cal_Mn:
-            data, label = self.C_Mn_model_cal_Mn()  # 0.020663763357
+        if C_Mn_S_P_Si_cal_Mn_S_P:
+            data, label = self.C_Mn_S_P_Si_model_cal_Mn_S_P()
         if C_Mn_S_P_Si_cal_C_Mn_S_P_Si:
             data, label = self.C_Mn_S_P_Si_model_cal_C_Mn_S_P_Si()
         self.linear_model(data, label)
@@ -187,32 +137,21 @@ class cal_accuracy:
 
     def run(self):
         self.read_data()
-        self.train(C_Mn_cal_Mn_C=False, C_Mn_cal_Mn=True)
-        self.fill_Mn()
+        self.train(C_Mn_S_P_Si_cal_Mn_S_P=True)
+        self.fill_Mn_S_P()
         self.read_data(filename="result_C_Mn_Si_S_P_.xlsx")
-        # self.train(C_Mn_cal_Mn_C=True, C_Mn_cal_Mn=False)
-        # self.fill_C_Mn()
-        self.train(C_Mn_cal_Mn_C=True, C_Mn_cal_Mn=False)
+        self.train(C_Mn_S_P_Si_cal_C_Mn_S_P_Si=True)
         self.fill_C_Mn_S_P_Si()
 
-    def fill_Mn(self):
+    def fill_Mn_S_P(self):
         data = self.data.iloc[229:610, :]
-        print(data)
-        data_input = data.loc[:, self.label]
-        data_input = self.std.transform(data_input)
-        res = self.model.predict(data_input).ravel()
-        for i in np.arange(len(res)):
-            self.data.loc[192 + i:, "Mn收得率"] = res[i]
-        self.data.to_excel("result_C_Mn_Si_S_P_.xlsx", index=False)
-
-    def fill_C_Mn(self):
-        data = self.data.iloc[610:, :]
         data_input = data.loc[:, self.label]
         data_input = self.std.transform(data_input)
         res = np.array(self.model.predict(data_input))
         for i in np.arange(len(res)):
-            self.data.loc[610 + i:, "C收得率"] = res[i][0]
-            self.data.loc[610 + i:, "Mn收得率"] = res[i][1]
+            self.data.loc[192 + i:, "Mn收得率"] = res[i][0]
+            self.data.loc[192 + i:, "S收得率"] = res[i][1]
+            self.data.loc[192 + i:, "P收得率"] = res[i][2]
         self.data.to_excel("result_C_Mn_Si_S_P_.xlsx", index=False)
 
     def fill_C_Mn_S_P_Si(self):
