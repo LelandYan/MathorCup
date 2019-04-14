@@ -115,13 +115,16 @@ class gen_data:
         # for i in item:
         #     self.data = self.data[(self.data[i] < 1) ]
         # 将转炉终点温度为0的剔除
+        print(self.data.shape)
         self.data = self.data[self.data["转炉终点温度"] != 0]
         self.data = self.data[~self.data["转炉终点温度"].isnull()]
         self.data = self.data[~self.data["钢水净重"].isnull()]
+        print(self.data.shape)
         for i in self.item:
             self.data = self.data[~(self.data[i] == np.inf)]
-            self.data = self.data[~self.data[i].isnull()]
+            # self.data = self.data[~self.data[i].isnull()]
             self.data = self.data[~(self.data[i] == np.nan)]
+        print(self.data.shape)
         # 储存结果文件
         self.data.to_excel("process_C_Mn_Si_S_P_data.xlsx", index=False)
 

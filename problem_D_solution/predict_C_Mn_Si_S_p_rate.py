@@ -54,7 +54,6 @@ class cal_accuracy:
     def C_Mn_model_cal_C_Mn(self):
         data = self.data[(self.data["Mn收得率"] >= 0) | (self.data["Mn收得率"] < 1)]
         C_Mn_label = data.iloc[:193, -5:-3]
-        print(C_Mn_label.shape)
         # self.label = ["转炉终点温度", "转炉终点C", '钢水净重', '连铸正样C', '连铸正样Mn',
         #                               "钒铁(FeV50-A)", "钒铁(FeV50-B)", "硅铝合金FeAl30Si25", "硅铝锰合金球",
         #                               "硅锰面（硅锰渣）", "硅铁(合格块)", "硅铁FeSi75-B", "石油焦增碳剂",
@@ -77,8 +76,18 @@ class cal_accuracy:
         return data_Mn, Mn_label
 
     def C_Mn_S_P_Si_model_cal_C_Mn_S_P_Si(self):
-        data = 0
-        label = 0
+        data = self.data[(self.data["C收得率"] >= 0) | (self.data["C收得率"] < 1)]
+        C_Mn_label = data.iloc[:193, -5:-1]
+        # self.label = ["转炉终点温度", "转炉终点C", '钢水净重', '连铸正样C', '连铸正样Mn',
+        #                               "钒铁(FeV50-A)", "钒铁(FeV50-B)", "硅铝合金FeAl30Si25", "硅铝锰合金球",
+        #                               "硅锰面（硅锰渣）", "硅铁(合格块)", "硅铁FeSi75-B", "石油焦增碳剂",
+        #                               "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)", "碳化硅(55%)", "硅钙碳脱氧剂", ]
+        self.label = ["转炉终点温度", "转炉终点C", '钢水净重', "钒铁(FeV50-A)", "钒铁(FeV50-B)", "硅铝合金FeAl30Si25", "硅铝锰合金球",
+                      "硅锰面（硅锰渣）", "硅铁(合格块)", "硅铁FeSi75-B", "石油焦增碳剂",
+                      "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)", "碳化硅(55%)", "硅钙碳脱氧剂", ]
+        # 剔除, '转炉终点Mn'
+        data = data.loc[:192, self.label]
+        return data, C_Mn_label
 
 
         return data, label
