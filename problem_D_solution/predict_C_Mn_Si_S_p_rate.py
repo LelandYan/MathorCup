@@ -29,23 +29,25 @@ class cal_accuracy:
 
     def C_Mn_S_P_Si_model_cal_C_Mn_S_P_Si(self):
         data = self.data[(self.data["C收得率"] >= 0) | (self.data["C收得率"] < 1)]
-        label = data.iloc[:193, -5:-1]
-        self.label = ["转炉终点温度", "转炉终点C", "转炉终点S", "转炉终点Si", '钢水净重', "钒铁(FeV50-A)", "钒铁(FeV50-B)", "硅铝合金FeAl30Si25",
-                      "硅铝锰合金球", "硅锰面（硅锰渣）", "硅铁(合格块)", "硅铁FeSi75-B", "石油焦增碳剂",
-                      "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)", "碳化硅(55%)", "硅钙碳脱氧剂", ]
+        label = data.iloc[:193, -5:]
+        self.label = ["转炉终点温度", "转炉终点C", "转炉终点S", "转炉终点Si", '钢水净重', "低铝硅铁",
+                      "钒铁(FeV50-A)", "钒铁(FeV50-B)", "硅铝钙","硅铝合金FeAl30Si25", "硅铝锰合金球",
+                      "硅锰面（硅锰渣）", "硅铁(合格块)", "硅铁FeSi75-B", "石油焦增碳剂",
+                      "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)", "碳化硅(55%)", "硅钙碳脱氧剂"]
         # 剔除, '转炉终点Mn'
         data = data.loc[:192, self.label]
         return data, label
 
     def C_Mn_S_P_Si_model_cal_Mn_S_P(self):
-        data = self.data[(self.data["Mn收得率"] >= 0) | (self.data["Mn收得率"] < 1)]
-        Mn_label = data.iloc[:192, -4]
-        self.label = ["转炉终点温度", "转炉终点C", '钢水净重', "钒铁(FeV50-A)", "钒铁(FeV50-B)", "硅铝合金FeAl30Si25", "硅铝锰合金球",
+        data = self.data[(self.data["C收得率"] >= 0) | (self.data["C收得率"] < 1)]
+        label = data.iloc[:193, -4:-1]
+        self.label = ["转炉终点温度", "转炉终点C", "转炉终点S", "转炉终点Si", '钢水净重', "低铝硅铁",
+                      "钒铁(FeV50-A)", "钒铁(FeV50-B)", "硅铝钙","硅铝合金FeAl30Si25", "硅铝锰合金球",
                       "硅锰面（硅锰渣）", "硅铁(合格块)", "硅铁FeSi75-B", "石油焦增碳剂",
-                      "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)", "碳化硅(55%)", "硅钙碳脱氧剂", ]
+                      "锰硅合金FeMn64Si27(合格块)", "锰硅合金FeMn68Si18(合格块)", "碳化硅(55%)", "硅钙碳脱氧剂"]
         # 剔除, "连铸正样Mn"
-        data_Mn = data.loc[:192, self.label]
-        return data_Mn, Mn_label
+        data = data.loc[:192, self.label]
+        return data, label
 
     def train(self, C_Mn_S_P_Si_cal_Mn_S_P=False,
               C_Mn_S_P_Si_cal_C_Mn_S_P_Si=False):
@@ -122,7 +124,6 @@ class cal_accuracy:
         self.std.fit(X_train)
         X_train = self.std.transform(X_train)
         X_test = self.std.transform(X_test)
-
         # self.model = RandomForestRegressor()  # 0.00178279872547 0.00130315829688
         self.model = LinearRegression()  # 8.36667068081e-05  0.00016716587287
         # self.model = Ridge() # 7.8575505755e-05              0.000232658506956

@@ -119,6 +119,7 @@ class gen_data:
         # 将转炉终点温度为0的剔除
         self.data = self.data[self.data["转炉终点温度"] != 0]
         self.data = self.data[(self.data["转炉终点C"] != 0) & (~self.data["转炉终点C"].isnull())]
+        self.data = self.data[(self.data["转炉终点Si"] != 0) & (~self.data["转炉终点Si"].isnull())]
         self.data = self.data[~self.data["转炉终点温度"].isnull()]
         self.data = self.data[~self.data["钢水净重"].isnull()]
         print(self.data.shape)

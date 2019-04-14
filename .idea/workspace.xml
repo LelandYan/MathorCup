@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb519405-a1d9-44ce-bafa-f1e73d2afcbb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/problem_D_solution/gen_C_Mn_Si_S_P_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/problem_D_solution/gen_C_Mn_Si_S_P_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/problem_D_solution/predict_C_Mn_Si_S_p_rate.py" beforeDir="false" afterPath="$PROJECT_DIR$/problem_D_solution/predict_C_Mn_Si_S_p_rate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem_D_solution/process_C_Mn_Si_S_P_data.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/problem_D_solution/process_C_Mn_Si_S_P_data.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem_D_solution/result_C_Mn_Si_S_P_.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/problem_D_solution/result_C_Mn_Si_S_P_.xlsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,13 +15,13 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/MathorCup$data_analysis__1_.coverage" NAME="data_analysis (1) Coverage Results" MODIFIED="1555131160103" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MathorCup$accuracy_predict__1_.coverage" NAME="accuracy_predict (1) Coverage Results" MODIFIED="1555136582201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/solution" />
-    <SUITE FILE_PATH="coverage/MathorCup$predict_C_Mn_Si_S_p_rate.coverage" NAME="predict_C_Mn_Si_S_p_rate Coverage Results" MODIFIED="1555227672889" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/problem_D_solution" />
+    <SUITE FILE_PATH="coverage/MathorCup$predict_C_Mn_Si_S_p_rate.coverage" NAME="predict_C_Mn_Si_S_p_rate Coverage Results" MODIFIED="1555229759367" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/problem_D_solution" />
     <SUITE FILE_PATH="coverage/MathorCup$predict_C_Mn_rate.coverage" NAME="predict_C_Mn_rate Coverage Results" MODIFIED="1555223398512" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/problem_D_solution" />
     <SUITE FILE_PATH="coverage/MathorCup$get_need_data.coverage" NAME="get_need_data Coverage Results" MODIFIED="1555037234475" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MathorCup$data_analysis__2_.coverage" NAME="data_analysis (2) Coverage Results" MODIFIED="1555166187291" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/problem_D_solution" />
     <SUITE FILE_PATH="coverage/MathorCup$gen_raw_data__1_.coverage" NAME="gen_raw_data (1) Coverage Results" MODIFIED="1555130970436" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/solution" />
     <SUITE FILE_PATH="coverage/MathorCup$accuracy_predict.coverage" NAME="accuracy_predict Coverage Results" MODIFIED="1555130764347" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/MathorCup$gen_C_Mn_Si_S_P_data.coverage" NAME="gen_C_Mn_Si_S_P_data Coverage Results" MODIFIED="1555227543692" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/problem_D_solution" />
+    <SUITE FILE_PATH="coverage/MathorCup$gen_C_Mn_Si_S_P_data.coverage" NAME="gen_C_Mn_Si_S_P_data Coverage Results" MODIFIED="1555229614847" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/problem_D_solution" />
     <SUITE FILE_PATH="coverage/MathorCup$data_analysis.coverage" NAME="data_analysis Coverage Results" MODIFIED="1555141091244" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/solution" />
     <SUITE FILE_PATH="coverage/MathorCup$gen_C_Mn_data.coverage" NAME="gen_C_Mn_data Coverage Results" MODIFIED="1555223393427" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/problem_D_solution" />
     <SUITE FILE_PATH="coverage/MathorCup$predict_Mn_rate.coverage" NAME="predict_Mn_rate Coverage Results" MODIFIED="1555057005617" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -56,56 +55,49 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="58" />
+          <entry key="py" value="60" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="58" />
+          <entry key="Python" value="60" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="41" />
-          <entry key="py" value="11878" />
+          <entry key="py" value="11942" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="41" />
-          <entry key="Python" value="11878" />
+          <entry key="Python" value="11942" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/problem_D_solution/predict_C_Mn_Si_S_p_rate.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="198" column="51" lean-forward="true" selection-start-line="198" selection-start-column="51" selection-end-line="198" selection-end-column="51" />
+            <state relative-caret-position="125">
+              <caret line="125" column="20" selection-start-line="125" selection-start-column="20" selection-end-line="125" selection-end-column="20" />
               <folding>
-                <element signature="e#943#1400#0" />
-                <element signature="e#1443#2232#0" />
-                <element signature="e#3162#3525#0" />
-                <element signature="e#4497#4890#0" />
                 <element signature="e#5167#7379#0" />
-                <element signature="e#7430#8295#0" />
-                <element signature="e#8674#9568#0" />
-                <element signature="e#9089#9490#0" />
-                <marker date="1555228496811" expanded="true" signature="4115:4608" ph="..." />
-                <marker date="1555228496811" expanded="true" signature="9820:10295" ph="..." />
+                <marker date="1555229571054" expanded="true" signature="1528:2063" ph="..." />
+                <marker date="1555229571054" expanded="true" signature="6484:6489" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/problem_D_solution/gen_C_Mn_Si_S_P_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="121" column="60" lean-forward="true" selection-start-line="121" selection-start-column="60" selection-end-line="121" selection-end-column="60" />
+            <state relative-caret-position="275">
+              <caret line="121" column="48" selection-start-line="121" selection-start-column="48" selection-end-line="121" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -141,8 +133,8 @@
         <option value="$PROJECT_DIR$/problem_D_solution/data_analysis.py" />
         <option value="$PROJECT_DIR$/problem_D_solution/predict_C_Mn_rate.py" />
         <option value="$PROJECT_DIR$/problem_D_solution/gen_C_Mn_data.py" />
-        <option value="$PROJECT_DIR$/problem_D_solution/gen_C_Mn_Si_S_P_data.py" />
         <option value="$PROJECT_DIR$/problem_D_solution/predict_C_Mn_Si_S_p_rate.py" />
+        <option value="$PROJECT_DIR$/problem_D_solution/gen_C_Mn_Si_S_P_data.py" />
       </list>
     </option>
   </component>
@@ -152,7 +144,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="587" />
     <option name="y" value="173" />
     <option name="width" value="1192" />
@@ -360,7 +352,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.21073826" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27114093" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.20268457" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -509,17 +501,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/problem_D_solution/gen_C_Mn_Si_S_P_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="121" column="60" lean-forward="true" selection-start-line="121" selection-start-column="60" selection-end-line="121" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/problem_D_solution/predict_C_Mn_rate.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="39" column="8" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+        <state relative-caret-position="-1">
+          <caret line="42" column="33" lean-forward="true" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
           <folding>
             <element signature="e#78#96#0" expanded="true" />
             <element signature="e#4114#6307#0" />
@@ -531,20 +516,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/problem_D_solution/predict_C_Mn_Si_S_p_rate.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="198" column="51" lean-forward="true" selection-start-line="198" selection-start-column="51" selection-end-line="198" selection-end-column="51" />
+        <state relative-caret-position="125">
+          <caret line="125" column="20" selection-start-line="125" selection-start-column="20" selection-end-line="125" selection-end-column="20" />
           <folding>
-            <element signature="e#943#1400#0" />
-            <element signature="e#1443#2232#0" />
-            <element signature="e#3162#3525#0" />
-            <element signature="e#4497#4890#0" />
             <element signature="e#5167#7379#0" />
-            <element signature="e#7430#8295#0" />
-            <element signature="e#8674#9568#0" />
-            <element signature="e#9089#9490#0" />
-            <marker date="1555228496811" expanded="true" signature="4115:4608" ph="..." />
-            <marker date="1555228496811" expanded="true" signature="9820:10295" ph="..." />
+            <marker date="1555229571054" expanded="true" signature="1528:2063" ph="..." />
+            <marker date="1555229571054" expanded="true" signature="6484:6489" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/problem_D_solution/gen_C_Mn_Si_S_P_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="121" column="48" selection-start-line="121" selection-start-column="48" selection-end-line="121" selection-end-column="48" />
         </state>
       </provider>
     </entry>
