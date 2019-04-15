@@ -15,7 +15,8 @@ from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import Imputer
 from sklearn.externals import joblib
 from sklearn.neural_network import MLPRegressor
-
+import matplotlib.pyplot as plt
+import matplotlib as mpl
 class cal_accuracy:
     def __init__(self, name="process_C_Mn_data.xlsx"):
         self.file_name = name
@@ -155,14 +156,17 @@ class cal_accuracy:
         self.model = LinearRegression()  # 8.36667068081e-05  0.00016716587287
         # self.model = Ridge() # 7.8575505755e-05              0.000232658506956
         # self.model = Lasso() # 0.0046516170403                  0.00238670854501
-        # self.model = SVR()  # 0.00328161901572                 0.00307726323407
+        #self.model = SVR()  # 0.00328161901572                 0.00307726323407
         self.model.fit(X_train, y_train)
         y_pred = self.model.predict(X_test)
-
+        # print(self.model.coef_)
+        # print(self.model.intercept_)
         # 模型的存储
         # joblib.dump(self.model, "Mn.m")
         print(np.sqrt(mean_squared_error(y_pred, y_test)))
-        print(1-(np.abs(y_pred-y_test))/y_pred)
+        print(np.mean(np.array(1-(np.abs(y_pred-y_test))/y_pred)))
+        #plt.scatter(np.arange(len(np.array(1-(np.abs(y_pred-y_test))/y_pred))),np.array(1-(np.abs(y_pred-y_test))/y_pred))
+
 
     def run(self):
         self.read_data()
